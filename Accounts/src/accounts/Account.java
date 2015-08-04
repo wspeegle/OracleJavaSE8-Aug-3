@@ -4,6 +4,7 @@ public class Account {
 
     private String owner;
     private int balance;
+    private String homeBank = "Main branch";
 
     public String getOwner() {
         return owner;
@@ -17,6 +18,10 @@ public class Account {
 
     public int getBalance() {
         return balance;
+    }
+    
+    protected String getHomeBank() {
+        return homeBank;
     }
     
     public int withdraw(int request) {

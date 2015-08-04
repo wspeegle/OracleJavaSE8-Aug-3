@@ -1,5 +1,7 @@
 package accounts;
 
+import bank.CheckingAccount;
+
 public class Accounts {
 
     public static void showAccount(Account a) {
@@ -13,6 +15,8 @@ public class Accounts {
             new Account("Jim", 0)
         };
 
+        System.out.println("Home bank for Fred is " 
+            + accounts[0].getHomeBank());
         accounts[0].setOwner("Fred");
         showAccount(accounts[0]);
         accounts[1].setOwner(null);
