@@ -35,6 +35,16 @@ public class CheckingAccount extends Account {
         return 0;
     }
     
+    @Override
+    public boolean equals(Object other) {
+        if (other.getClass() == CheckingAccount.class) {
+            CheckingAccount o = (CheckingAccount)other;
+            if (super.equals(other)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
