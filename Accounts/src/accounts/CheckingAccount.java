@@ -1,5 +1,7 @@
 package accounts;
 
+import accounts.Account;
+
 public class CheckingAccount extends Account {
 
     private int overdraftLimit;
@@ -16,6 +18,14 @@ public class CheckingAccount extends Account {
         super(owner, balance);
         this.overdraftLimit = 0;
     }
+
+    public int getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    public void setOverdraftLimit(int overdraftLimit) {
+        this.overdraftLimit = overdraftLimit;
+    }
     
     @Override
     public int withdraw(int request) {
@@ -30,6 +40,7 @@ public class CheckingAccount extends Account {
     public String toString() {
         return "CheckingAccount{" + "holder=" + getOwner()
             + ", balance=" + getBalance() 
-            + " overdraftLimit=" + overdraftLimit + '}';
+            + " overdraftLimit=" + overdraftLimit
+            + " home: " + getHomeBank() + '}';
     }
 }

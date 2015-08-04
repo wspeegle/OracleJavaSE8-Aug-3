@@ -1,6 +1,6 @@
 package accounts;
 
-public class Account {
+public class Account /* extends Object */ {
 
     private String owner;
     private int balance;

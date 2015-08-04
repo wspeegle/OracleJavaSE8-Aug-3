@@ -1,7 +1,5 @@
 package accounts;
 
-import bank.CheckingAccount;
-
 public class Accounts {
 
     public static void showAccount(Account a) {
@@ -15,7 +13,7 @@ public class Accounts {
             new Account("Jim", 0)
         };
 
-        System.out.println("Home bank for Fred is " 
+        System.out.println("Home bank for Fred is "
             + accounts[0].getHomeBank());
         accounts[0].setOwner("Fred");
         showAccount(accounts[0]);
@@ -26,9 +24,21 @@ public class Accounts {
         accounts[0].deposit(10_000);
         for (Account a : accounts) {
             showAccount(a);
-            a.withdraw(15_000);
+            if (a.withdraw(15_000) != 15_000) {
+                System.out.println("Withdraw denied!");
+                if (a instanceof CheckingAccount) {
+                    System.out.println("Have a checking account"
+                        + ", seeking overdraft");
+                    CheckingAccount ca
+                        = (CheckingAccount) a;
+                    ca.setOverdraftLimit(-20_000);
+                    if (a.withdraw(15_000) == 15_000) {
+                        System.out.println("Withdraw succeeded!");
+                    }
+                }
+            }
         }
- 
+
         System.out.println("==========================");
         for (Account a : accounts) {
             showAccount(a);
