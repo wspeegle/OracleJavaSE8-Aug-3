@@ -20,8 +20,10 @@ public class InnerComparator {
         ls.add(new Student("Jim", 2.9F));
 
         System.out.println("list: " + ls);
-        showSortedList(ls, new Student.GPAComparator());
+        showSortedList(ls, Student.getGPAComparator());
         
         showSortedList(ls, new Student.NameComparator());
+        
+        showSortedList(ls, (s1, s2)-> s1.getName().compareTo(s2.getName()));
     }
 }
