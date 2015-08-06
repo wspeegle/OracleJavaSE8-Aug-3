@@ -19,6 +19,12 @@ public class MapExample {
             System.out.println("got " + str);
         }
         
+        l.forEach(v->System.out.println(">>> " + v));
+        System.out.println("======================");
+        l.forEach(System.out::println);
+        
+        System.out.println("======================");
+        
         Map<String, Student> roster = new HashMap<>();
         roster.put("Fred", new Student("Fred", 3.2F));
         roster.put("Jim", new Student("Jim", 2.8F));
@@ -41,6 +47,15 @@ public class MapExample {
             System.out.println("> key: " + ent.getKey()
                 + " value: " + ent.getValue());
         }
+        
+        System.out.println("======================");
+        roster.forEach((k,v)->System.out.println("Key: " + k + " value: " + v));
+        roster.forEach(MapExample::printTwo);
+        roster.forEach((k,v)->MapExample.printTwo(k, v));
+    }
+    
+    public static <E> void printTwo(E l, E r) {
+        System.out.println("> " + l + " >> " + r);
     }
     
 }
